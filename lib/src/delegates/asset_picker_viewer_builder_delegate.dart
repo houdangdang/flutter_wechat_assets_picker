@@ -605,7 +605,10 @@ class DefaultAssetPickerViewerBuilderDelegate
               if (isWeChatMoment && _hasVideos) {
                 return 48.0;
               }
-              return provider!.isSelectedNotEmpty ? 48.0 : 20.0;
+              if (provider != null && provider.isSelectedNotEmpty != null) {
+                return provider!.isSelectedNotEmpty ? 48.0 : 20.0;
+              }
+              return 48.0;
             }(),
             height: 32.0,
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
